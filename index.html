@@ -1,95 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>Task List Project</title>
-     </head>
-    
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Task List</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
 <body>
-     <h1 class="text-center font-weight-bold">Task List</h1>
-    
-    <br>
-    <br>
-    <br>
-
-<form action="#">
-
-    <div class="row justify-content-center">
-        <label for="name" >
-             <div style="border: 2px solid #cd3aef" class="rounded-pill">Name</div>
-        </label>
-    </div>
-        <br>
-    <div class="row justify-content-center">
-        
-            <input type="text" name="full name" value="Enter full name here!" style="border: 2px solid #00bfff" class="rounded-pill" required>
+    <div class="container">
+        <h1 class="my-5">Task List</h1>
+        <div class="row mb-5">
+            <div class="col">
+                <h2>New Task</h2>
+                <form id="newTaskForm">
+                    <div class="form-group">
+                        <label for="newTaskNameInput">Name</label>
+                        <input type="text" class="form-control" id="newTaskNameInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="newTaskDescription">Description</label>
+                        <textarea type="text" class="form-control" id="newTaskDescription"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="newTaskAssignedTo">Assigned To</label>
+                            <input type="text" class="form-control" id="newTaskAssignedTo">
+                        </div>
+                        <div class="form-group col">
+                            <label for="newTaskDueDate">Due Date</label>
+                            <input type="date" class="form-control" id="newTaskDueDate">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Add Task</button>
+                </form>
+            </div>
         </div>
-    </div>
-
-</form>
-
-<div class="container">
-    <form action="#">
         <div class="row">
-            <div class="col-3">
-                <label for="task_name">
-                    <div style="border: 2px solid #00bfff" class="rounded-pill">Task Name</div>
-                </label>
-                    <br>
-                <input type="text" name="task name" style="border: 2px solid #00bfff" class="rounded-pill" required>
+            <div class="col">
+                <h2>Tasks</h2>
+                <ul class="list-group" id="tasksList">
+                </ul>
             </div>
-
-            <div class="col-5">
-                <label for="start_date">
-                    <div style="border: 2px solid #00bfff" class="rounded-pill">Start Date</div>
-                </label>
-                    <br>
-                <input type="date" id="start" name="start_date" value="2022-09-01" min="2022-09-01" max="2030-12-31" style="border: 2px solid #00bfff" class="rounded-pill" required>
-            </div>
-
-            <div class="col-2">
-                <label for="due_date">
-                    <div style="border: 2px solid #00bfff" class="rounded-pill">Due Date</div>
-                </label>
-                    <br>
-                <input type="date" id="due" name="due_date" value="2022-09-02" min="2022-09-02" max="2030-12-31"  style="border: 2px solid #00bfff" class="rounded-pill" required>
-            </div>
-
-            <div class="col-2">
-                <label for="task_description">
-                    <div style="border: 2px solid #00bfff" class="rounded-pill">Description</div>
-                </label>
-                    <br>
-                <input type="text" name="description" style="border: 2px solid #00bfff" class="rounded-pill" required>
-            </div>
-
-
-
+            <div class="col"></div>
         </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
 
+<!--Task Cards-->
+<div class="card border-danger container" id="sample-card">
+    <div class="card-header text-uppercase display-6">
+      List name
+    </div>
+    <div class="card-body m-5 row row-cols-4">
+      <h5 class="card-title fs-3 col-8">Task Name</h5> 
+      <p class="task-description col-8">Task Description:</p>
+      <a href="#" class="btn btn-success col-4">Status</a>
+      <p class="ask-assignee col-12">Task Assignee:</p>
+      <p class="start-date col-12">Start Date:</p> <p class="due-date col-8">Due Date:</p> 
+      <a href="#" class="btn btn-success col-4">Delete</a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<div class="card border-danger" id="card-one">
+    <div class="card-header text-uppercase display-6">
+      To Do List
+    </div>
+    <div class="card-body m-5 card-body m-5 row row-cols-4">
+      <h5 class="card-title fs-3 col-8">Finish Organizing Garage</h5>
+      <a href="#" class="btn btn-success col-4">Status</a>
+      <p class="task-description col-12">Decorations are overtaking the garage. It needs to be organized before the start of the holiday season.</p>
+      
+      <p class="ask-assignee col-12">Task Assignee: Thomas</p>
+      <p class="start-date col-12">Start Date: September 25, 2022</p> 
+      <p class="due-date col-8">Due Date: October 31, 2022</p> 
+      <a href="#" class="btn btn-success col-4">Delete</a>
+    </div>
+</div>
+<br>
+<br>
+<div class="card border-danger" id="card-two">
+    <div class="card-header text-uppercase display-6">
+      Must Be Done Today
+    </div>
+    <div class="card-body m-5 card-body m-5 row row-cols-4">
+      <h5 class="card-title fs-3 col-8">Pick up Instacart order</h5> 
+      <a href="#" class="btn btn-success col-4">Status</a>
+      <p class="task-description col-12">Pickup instacart order. Don't forget to get items that picker couldn't find.</p>
+     
+      <p class="ask-assignee col-12">Task Assignee: Mom</p>
+      <p class="start-date col-12">Start Date: Today</p> 
+      <p class="due-date col-8">Due Date: Today</p> 
+      <a href="#" class="btn btn-success col-4">Delete</a>
+    </div>
+</div>
+<br>
+<br>
+<div class="card border-danger" id="card-three">
+    <div class="card-header text-uppercase display-6">
+      School Work
+    </div>
+    <div class="card-body m-5 card-body m-5 row row-cols-4">
+      <h5 class="card-title fs-3 col-8">Finish Work that is due next week</h5>
+      <a href="#" class="btn btn-success col-4">Status</a>
+      <p class="task-description col-12">There are three assignments due next week</p>
+      
+      <p class="ask-assignee col-12">Task Assignee: John</p>
+      <p class="start-date col-12">Start Date: August 25, 2022</p> 
+      <p class="due-date col-8">Due Date: September 2, 2022 </p> 
+      <a href="#" class="btn btn-success col-4">Delete</a>
+    </div>
+</div>
+<br>
+<br>
+<div class="card border-danger" id="card-four">
+    <div class="card-header text-uppercase display-6">
+      Invoices Needed
+    </div>
+    <div class="card-body m-5 card-body m-5 row row-cols-4">
+      <h5 class="card-title fs-3 col-8">Invoice for Smith's</h5>      
+      <a href="#" class="btn btn-success col-4">Status</a>
+      <p class="task-description col-12">Please complete and submit an accurate invoice for the Smith's account.</p>
 
+      <p class="ask-assignee col-12">Task Assignee: Robert Johnson</p>
+      <p class="start-date col-12">Start Date: March 14, 2022</p> 
+      <p class="due-date col-8">Due Date: March 20, 2022</p> 
+      <a href="#" class="btn btn-success col-4">Delete</a>
+    </div>
+</div>
+<br>
+<br>
+<div class="card border-danger" id="card-five">
+    <div class="card-header text-uppercase display-6">
+      Tampa Trip
+    </div>
+    <div class="card-body m-5 card-body m-5 row row-cols-4">
+      <h5 class="card-title fs-3 col-8">Book Flights</h5>      
+      <a href="#" class="btn btn-success col-4">Status</a>
+      <br>
+      <p class="task-description col-12">Book Flights for EVERYONE going and that has paid. You can check with Sam if you have any questions. </p>
 
-
-
-
-
-
-
-    </form>
-
-
-
-
+      <p class="ask-assignee col-12">Task Assignee: Brain Mattews</p>
+      <p class="start-date col-12">Start Date: May 25, 2022</p> 
+      <p class="due-date col-8">Due Date: June 15, 2022</p> 
+      <a href="#" class="btn btn-success col-4">Delete</a>
+    </div>
 </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 
+    <script src="js/TaskManager.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
-
-
-
-
-
-
 </html>
+
