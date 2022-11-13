@@ -42,8 +42,16 @@
                             <label for="newTaskDueDate">Due Date</label>
                             <input type="date" class="form-control" id="newTaskDueDate">
                         </div>
+                        <br>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Add Task</button>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert">
+                      <strong>Try Again!</strong> Please enter a name for your task.
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    
                 </form>
             </div>
         </div>

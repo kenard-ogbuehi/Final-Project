@@ -9,39 +9,72 @@ class Task extends TaskManager
 const taskNew = new Task();
 
 
-
 //Variable for form
 const form  = document.querySelector('#newTaskForm');
 
-// Get data from form
-function getData(form) {
+
+function validFormFieldInput(form) {
   const formData = new FormData(form);
 
+  //name for fields
+  const newTaskNameInput = document.querySelector('#newTaskNameInput');
+  const name = newTaskNameInput.value;
+  const newTaskDescription = document.querySelector('#newTaskDescription');
+  const description = newTaskDescription.value;
+  const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
+  const assignedTo = newTaskAssignedTo.value;
+  const newTaskDueDate = document.querySelector('#newTaskDueDate');
+  const dueDate = newTaskDueDate.value;
+  const newTaskStatus = document.querySelector('#newTaskStatus');
+ //const status = newTaskStatus.value;
+
+ //verify inputs
+ console.log("name:  "+name, " description: "+ description, " assignedTo: " + assignedTo, " due date: "+ dueDate, " status: "+status);
+
+//Get form data
   for (const task of formData.entries()) {
-    taskNew.addTask(document.getElementById("newTaskNameInput").value,document.getElementById("newTaskDescription").value,document.getElementById("newTaskAssignedTo").value,document.getElementById("newTaskDueDate").value);
+    taskNew.addTask(name, description, assignedTo, dueDate);
   }
-//code to get status place after Due date
- //, document.getElementById("newTaskStatus").value 
+
 }
 
+//Hide alert
+document.getElementById("alert").style.display="none";
+
 //function to check values from form
-async function hasValue(input, message) {
-  if (input.value.trim() === "") {
-    return console.log('error');
-    
-  }
+function hasValue(input) {
+   
+   if (input.value.trim() === "") {
+    return document.getElementById("alert").style.display="block";
+  } else {
+    document.getElementById("alert").style.display="none"
+  } 
+
+  
 }
+
+;
 
 //Event for submit
 document.getElementById("newTaskForm").addEventListener("submit", function (event) {
+  
+  
   //Handle invalid data & prevent default
   event.preventDefault();
   let nameValid = hasValue(form.elements['newTaskNameInput']);
+  
   //form validation is successful
-  getData(event.target);
+  validFormFieldInput(event.target);
+
 
   //Reset form
 form.reset();
+
 });
 
+//call new tasks
+
 console.log(taskNew.tasks)
+
+
+
