@@ -10,11 +10,11 @@ const taskNew = new Task();
 
 
 //Variable for form
-const form  = document.querySelector('#newTaskForm');
+const data = document.querySelector('#newTaskForm');
 
 
-function validFormFieldInput(form) {
-  const formData = new FormData(form);
+function validFormFieldInput(data) {
+  const formData = new FormData(data)
 
   //name for fields
   const newTaskNameInput = document.querySelector('#newTaskNameInput');
