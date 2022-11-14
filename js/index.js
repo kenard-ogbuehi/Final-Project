@@ -61,20 +61,24 @@ document.getElementById("newTaskForm").addEventListener("submit", function (even
   
   //Handle invalid data & prevent default
   event.preventDefault();
-  let nameValid = hasValue(form.elements['newTaskNameInput']);
+  let nameValid = hasValue(data.elements['newTaskNameInput']);
   
   //form validation is successful
   validFormFieldInput(event.target);
 
 
   //Reset form
-form.reset();
+data.reset();
 
 });
+// Create HTML task
+
+const taskHTML = createTaskHtml( ) ;
 
 //call new tasks
 
 console.log(taskNew.tasks)
+console.log(taskHTML)
 
 
 
