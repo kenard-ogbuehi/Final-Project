@@ -34,7 +34,7 @@ class TaskManager {
     
 }
 
-//Creat Task HTML
+//Create Task HTML
   
 const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
     `<div class="card-body m-5 card-body m-5 row row-cols-4">

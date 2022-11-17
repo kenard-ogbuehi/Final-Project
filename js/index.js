@@ -81,4 +81,6 @@ console.log(taskNew.tasks)
 console.log(taskHTML)
 
 
+const taskHTMLTest = createTaskHtml( 'Finish Organizing Garage', 'Decorations are overtaking the garage. It needs to be organized before the start of the holiday season.', 'Task Assignee: Thomas', 'Due Date: October 31, 2022', 'incomplete') ;
 
+console.log(taskHTMLTest)
