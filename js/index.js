@@ -7,7 +7,7 @@
 }
 
 const taskNew = new Task();*/
-const taskManager = new TaskManager(0);
+const taskManager = new taskManager(0);
 
 
 //Variable for form
