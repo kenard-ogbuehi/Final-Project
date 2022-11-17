@@ -1,4 +1,5 @@
 
+
 //Using Javascript to Create the Task HTML
 
 const createTaskHtml = (name, description, assignedTo, dueDate, status) =>  
@@ -33,6 +34,7 @@ class TaskManager {
     /*get tasks() {
         return this._tasks;
     }*/
+
     /*increaseTask(newTask){
         return this._tasks.push(newTask);
     }
@@ -52,6 +54,7 @@ class TaskManager {
             newTaskDueDate: newTaskDueDate,
             status: status
         };
+
              this.tasks.push(task) 
     }
     //render method 
@@ -67,6 +70,7 @@ class TaskManager {
         const taskList = document.querySelector("#tasksList"); 
         taskList.innerHTML = taskHtml;
     }
+
 }
 
 

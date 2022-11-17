@@ -1,4 +1,6 @@
+
 /*class Task extends TaskManager
+
 {constructor(tasks)
   {super(tasks)}
   
@@ -6,6 +8,7 @@
 
 const taskNew = new Task();*/
 const taskManager = new TaskManager(0);
+
 
 //Variable for form
 const data = document.querySelector('#newTaskForm');
@@ -16,6 +19,7 @@ function validFormFieldInput(data) {
 
   //name for fields
   const newTaskNameInput = document.querySelector('#newTaskNameInput');
+
   //const name = newTaskNameInput.value;
   const newTaskDescription = document.querySelector('#newTaskDescription');
   //const description = newTaskDescription.value;
@@ -23,6 +27,7 @@ function validFormFieldInput(data) {
   //const assignedTo = newTaskAssignedTo.value;
   const newTaskDueDate = document.querySelector('#newTaskDueDate');
   //const dueDate = newTaskDueDate.value;
+
   const newTaskStatus = document.querySelector('#newTaskStatus');
  //const status = newTaskStatus.value;
 
@@ -59,7 +64,8 @@ document.getElementById("newTaskForm").addEventListener("submit", function (even
   
   //Handle invalid data & prevent default
   event.preventDefault();
-  //let nameValid = hasValue(form.elements['newTaskNameInput']);
+
+  //let nameValid = hasValue(data.elements['newTaskNameInput']);
   
   //form validation is successful
   //validFormFieldInput(event.target);
@@ -72,14 +78,17 @@ document.getElementById("newTaskForm").addEventListener("submit", function (even
   taskManager.addTask(name, description, assignedTo, dueDate, status); 
   taskManager.render();
   //Reset form
-//form.reset();
+//data.reset();
+
 
 });
 
 //call new tasks
+
 //console.log(taskNew.tasks)
 
 // test taskHTML 
 const taskHtml = createTaskHtml(name, description, assignedTo, dueDate, status);
 
 console.log(taskHtml)
+
