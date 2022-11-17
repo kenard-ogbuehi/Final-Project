@@ -1,12 +1,13 @@
-//Test Task Manager
 
-class Task extends TaskManager
+/*class Task extends TaskManager
+
 {constructor(tasks)
   {super(tasks)}
   
 }
 
-const taskNew = new Task();
+const taskNew = new Task();*/
+const taskManager = new TaskManager(0);
 
 
 //Variable for form
@@ -18,13 +19,15 @@ function validFormFieldInput(data) {
 
   //name for fields
   const newTaskNameInput = document.querySelector('#newTaskNameInput');
-  const name = newTaskNameInput.value;
+
+  //const name = newTaskNameInput.value;
   const newTaskDescription = document.querySelector('#newTaskDescription');
-  const description = newTaskDescription.value;
+  //const description = newTaskDescription.value;
   const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
-  const assignedTo = newTaskAssignedTo.value;
+  //const assignedTo = newTaskAssignedTo.value;
   const newTaskDueDate = document.querySelector('#newTaskDueDate');
-  const dueDate = newTaskDueDate.value;
+  //const dueDate = newTaskDueDate.value;
+
   const newTaskStatus = document.querySelector('#newTaskStatus');
  //const status = newTaskStatus.value;
 
@@ -61,14 +64,22 @@ document.getElementById("newTaskForm").addEventListener("submit", function (even
   
   //Handle invalid data & prevent default
   event.preventDefault();
-  let nameValid = hasValue(data.elements['newTaskNameInput']);
+
+  //let nameValid = hasValue(data.elements['newTaskNameInput']);
   
   //form validation is successful
-  validFormFieldInput(event.target);
-
-
+  //validFormFieldInput(event.target);
+  const name = newTaskNameInput.value;
+  const description = newTaskDescription.value; 
+  const assignedTo = newTaskAssignedTo.value; 
+  const dueDate = newTaskDueDate.value; 
+  //const status = newTaskStatus.value;
+  const status = 'To Do';
+  taskManager.addTask(name, description, assignedTo, dueDate, status); 
+  taskManager.render();
   //Reset form
-data.reset();
+//data.reset();
+
 
 });
 // Create HTML task
@@ -77,10 +88,11 @@ const taskHTML = createTaskHtml( ) ;
 
 //call new tasks
 
-console.log(taskNew.tasks)
-console.log(taskHTML)
+//console.log(taskNew.tasks)
 
+// test taskHTML 
+const taskHtml = createTaskHtml(name, description, assignedTo, dueDate, status);
 
-const taskHTMLTest = createTaskHtml( 'Finish Organizing Garage', 'Decorations are overtaking the garage. It needs to be organized before the start of the holiday season.', 'Task Assignee: Thomas', 'Due Date: October 31, 2022', 'incomplete') ;
+console.log(taskHtml)
 
 console.log(taskHTMLTest)
