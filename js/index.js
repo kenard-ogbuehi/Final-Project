@@ -1,13 +1,12 @@
 
-/*class Task extends TaskManager
+class Task extends TaskManager
 
 {constructor(tasks)
   {super(tasks)}
   
 }
 
-const taskNew = new Task();*/
-const taskManager = new TaskManager(0);
+const taskNew = new Task();
 
 
 //Variable for form
@@ -20,16 +19,14 @@ function validFormFieldInput(data) {
   //name for fields
   const newTaskNameInput = document.querySelector('#newTaskNameInput');
 
-  //const name = newTaskNameInput.value;
+  const name = newTaskNameInput.value;
   const newTaskDescription = document.querySelector('#newTaskDescription');
-  //const description = newTaskDescription.value;
+  const description = newTaskDescription.value;
   const newTaskAssignedTo = document.querySelector('#newTaskAssignedTo');
-  //const assignedTo = newTaskAssignedTo.value;
+  const assignedTo = newTaskAssignedTo.value;
   const newTaskDueDate = document.querySelector('#newTaskDueDate');
-  //const dueDate = newTaskDueDate.value;
+  const dueDate = newTaskDueDate.value;
 
-  const newTaskStatus = document.querySelector('#newTaskStatus');
- //const status = newTaskStatus.value;
 
  //verify inputs
  console.log("name:  "+name, " description: "+ description, " assignedTo: " + assignedTo, " due date: "+ dueDate, " status: "+status);
@@ -65,34 +62,27 @@ document.getElementById("newTaskForm").addEventListener("submit", function (even
   //Handle invalid data & prevent default
   event.preventDefault();
 
-  //let nameValid = hasValue(data.elements['newTaskNameInput']);
+  
   
   //form validation is successful
-  //validFormFieldInput(event.target);
+  let nameValid = hasValue(data.elements['newTaskNameInput']);
+  validFormFieldInput(event.target);
   const name = newTaskNameInput.value;
   const description = newTaskDescription.value; 
   const assignedTo = newTaskAssignedTo.value; 
   const dueDate = newTaskDueDate.value; 
-  //const status = newTaskStatus.value;
   const status = 'To Do';
-  taskManager.addTask(name, description, assignedTo, dueDate, status); 
-  taskManager.render();
-  //Reset form
-//data.reset();
+  taskHtml = createTaskHtml(name, description, assignedTo, dueDate, status)
+console.log(taskHtml);
+taskNew.render()
 
+  //Reset form
+
+data.reset();
 
 });
-// Create HTML task
 
-const taskHTML = createTaskHtml( ) ;
+//call new tasks (see new task in console)
 
-//call new tasks
+console.log(taskNew.tasks)
 
-//console.log(taskNew.tasks)
-
-// test taskHTML 
-const taskHtml = createTaskHtml(name, description, assignedTo, dueDate, status);
-
-console.log(taskHtml)
-
-console.log(taskHTMLTest)

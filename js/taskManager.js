@@ -25,15 +25,15 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) =>
 //Task Manager Class
 class TaskManager {
    
-   constructor(currentId = 0) {
-        this.tasks = [];
-        this.currentId = currentId;
+   constructor(task = [], currentId) {
+        this._tasks = task;
+        this._currentId = currentId;
             
    }
     //Add task to list
-    /*get tasks() {
+    get tasks() {
         return this._tasks;
-    }*/
+    }
 
     /*increaseTask(newTask){
         return this._tasks.push(newTask);
@@ -57,7 +57,7 @@ class TaskManager {
 
              this.tasks.push(task) 
     }
-    //render method 
+   //render method 
     render() { 
         const tasksHtmlList = []; 
         for(let i = 0; i < this.tasks.length; i++){ 
@@ -69,20 +69,7 @@ class TaskManager {
         }
         const taskList = document.querySelector("#tasksList"); 
         taskList.innerHTML = taskHtml;
-    }
+    } 
 
 }
 
-//Create Task HTML
-  
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
-    `<div class="card-body m-5 card-body m-5 row row-cols-4">
-    <h5 class="card-title fs-3 col-8">${name}</h5>
-    <a href="#" class="btn btn-success col-4">${status}</a>
-    <p class="task-description col-12">${description}</p>
-    <p class="ask-assignee col-12">${assignedTo}</p>
-    <p class="start-date col-12">Start Date: September 25, 2022</p>
-    <p class="due-date col-8">${dueDate}</p>
-    <a href="#" class="btn btn-success col-4">Delete</a>
-  </div>`
-}
